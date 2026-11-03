@@ -27,7 +27,7 @@ func parseTraining(data string) (int, string, time.Duration, error) {
 
 	steps, err := strconv.Atoi(stepsRaw)
 	if err != nil {
-		return 0, "", 0, err
+		return 0, "", 0, fmt.Errorf("invalid steps format: %w", err)
 	}
 	if steps <= 0 {
 		return 0, "", 0, fmt.Errorf("nonpositive number of steps: %d", steps)
